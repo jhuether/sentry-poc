@@ -5,7 +5,20 @@ import Colors from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
+import * as Sentry from "sentry-expo";
+
+Sentry.init({
+  dsn: "https://5098c18c24714a4d81aa67211a9186ad@o1010071.ingest.sentry.io/6486306",
+  enableInExpoDevelopment: true,
+  debug: true, // If `true`, Sentry will try to print out useful debugging information if something goes wrong with sending the event. Set it to `false` in production
+});
+
 export default function EditScreenInfo({ path }: { path: string }) {
+  try {
+    throw new Error("Dog error");
+  } catch (err) {
+    Sentry.Native.captureException("dog");
+  }
   return (
     <View>
       <View style={styles.getStartedContainer}>
@@ -27,7 +40,7 @@ export default function EditScreenInfo({ path }: { path: string }) {
           style={styles.getStartedText}
           lightColor="rgba(0,0,0,0.8)"
           darkColor="rgba(255,255,255,0.8)">
-          Change any of the text, save the file, and your app will automatically update.
+          Change any of the text, save the file, and your app will automatically.
         </Text>
       </View>
 

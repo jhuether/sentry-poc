@@ -19,16 +19,33 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jhuether.sentrypoc"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jhuether.sentrypoc"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "sentry-expo"
+    ],
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "chargenet-holdings-corp",
+            "project": "react-native-poc-jeremy",
+            "authToken": "1d1c9ccba4fd4c0292261c1bf5e8ead90bf340313715417ea5fd82b7ebae3138"
+          }
+        }
+      ]
     }
   }
 }
