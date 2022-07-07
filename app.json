@@ -42,7 +42,7 @@
           "config": {
             "organization": "chargenet-holdings-corp",
             "project": "react-native-poc-jeremy",
-            "authToken": "1d1c9ccba4fd4c0292261c1bf5e8ead90bf340313715417ea5fd82b7ebae3138"
+            "authToken": "token"
           }
         }
       ]
